@@ -1,25 +1,38 @@
 import React from 'react';
+import { tv, VariantProps } from 'tailwind-variants/dist/index.js';
 
-interface TextInputIconProps {
+const tvIcon = tv({
+    base: '',
+    variants: {
+        large: {
+            sm: 'w-6 h-6',
+            md: 'w-7 h-7',
+            lg: 'w-8 h-8'
+        },
+        color: {
+            default: 'fill-gray-3',
+            success: 'fill-primary',
+            error: 'fill-error'
+        }
+    },
+    defaultVariants: {
+        large: 'md',
+        color: 'default'
+    }
+})
+
+
+
+interface TextInputIconProps extends VariantProps<typeof tvIcon> {
     icon: React.ReactNode;
     large: 'sm' | 'md' | 'lg';
-    className?: string;
+    color?: 'success' | 'error' ;
 }
 
-const TextInputIcon: React.FC<TextInputIconProps> = ({ icon, large, className }) => {
-    let iconSizeClass = 'md';
-    const inputClassName = `custom-text-input-icon ${className || ''}`;
-
-    if (large === 'sm') {
-        iconSizeClass = 'w-6 h-6';
-    } else if (large === 'md') {
-        iconSizeClass = 'w-7 h-7';
-    } else if (large === 'lg') {
-        iconSizeClass = 'w-8 h-8';
-    }
+const TextInputIcon: React.FC<TextInputIconProps> = ({ icon, large, color } ) => {
 
     return (
-        <div className={`${iconSizeClass} ${inputClassName}`}>
+        <div className={tvIcon({ large, color })}>
             {icon}
         </div>
     );

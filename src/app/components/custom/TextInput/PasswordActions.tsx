@@ -20,7 +20,7 @@ const PasswordAction: React.FC<PasswordActionProps> = ({
             onClick={onClick}
             className={` ${passwordActionClassName}`}
         >
-            {isPasswordHidden ? <TextInputIcon icon={<EyeIcon />} large={large} className={`fill-gray-3`} /> : <TextInputIcon icon={<EyeOffIcon />} large={large} className={`fill-gray-3`} />}
+            {isPasswordHidden ? <TextInputIcon icon={<EyeIcon />} large={large}  /> : <TextInputIcon icon={<EyeOffIcon />} large={large} />}
         </button>
     );
 };

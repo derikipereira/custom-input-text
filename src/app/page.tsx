@@ -29,7 +29,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="sm" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}
@@ -49,7 +48,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="md" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}
@@ -69,7 +67,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="lg" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}
@@ -90,7 +87,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="md" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}
@@ -113,7 +109,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="md" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}
@@ -136,7 +131,6 @@ export default function Home() {
         <TextInput.Icon 
           icon={< EmailIcon />} 
           large="md" 
-          className={`fill-gray-3`} 
         />
         <TextInput.Input 
           type={isPasswordVisible ? 'text' : 'password'}

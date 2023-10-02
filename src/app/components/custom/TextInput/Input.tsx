@@ -1,18 +1,32 @@
 import React from 'react';
+import { tv, VariantProps } from 'tailwind-variants/dist/index.js';
 
-interface InputProps {
+const tvInput = tv({
+    base: 'w-full bg-transparent text-gray-3 border-none focus:outline-none p-2 rounded',
+    variants: {
+        large: {
+            sm: 'text-sm',
+            md: 'text-base',
+            lg: 'text-lg'
+        }
+    },
+    defaultVariants: {
+        large: 'md'
+    }
+})
+
+interface InputProps extends VariantProps<typeof tvInput> {
   placeholder: string;
   large: 'sm' | 'md' | 'lg';
   type?: string;
 }
 
 const Input: React.FC<InputProps> = ({ placeholder, large, type }) => {
-  const textInputClassName = `custom-text-input-input ${large === 'sm' ? 'text-sm' : large === 'md' ? 'text-base' : 'text-lg'}`;
 
   return (
     <input
       type={type || 'text'}
-      className={`w-full bg-transparent text-gray-3 border-none focus:outline-none p-2 rounded ${textInputClassName}`}
+      className={tvInput({ large })}
       placeholder={placeholder}
     />
   );

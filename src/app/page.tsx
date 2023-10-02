@@ -1,6 +1,8 @@
-import React from 'react';
-import CustomTextInput from './components/CustomTextInput';
+'use client'
+
+import React, { useState } from 'react';
 import { EmailIcon } from '../assets/Icons';
+import { TextInput } from './components/custom/TextInput';
 
 
 /**
@@ -10,75 +12,146 @@ import { EmailIcon } from '../assets/Icons';
  */
 export default function Home() {
 
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
   return (
     <div>
 
       <h1 className=' text-white text-2xl'>Small</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
+      <TextInput.Root
         large="sm"
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="sm" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          placeholder="Digite seu email" 
+          large='sm'
+        />
+      </TextInput.Root>
 
       <br />
       <br />
 
       <h1 className=' text-white text-2xl'>Medium</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
+      <TextInput.Root
         large="md"
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="md" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          placeholder="Digite seu email" 
+          large='md'
+        />
+      </TextInput.Root>
 
       <br />
       <br />
 
       <h1 className=' text-white text-2xl'>Large</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
+      <TextInput.Root
         large="lg"
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="lg" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          placeholder="Digite seu email" 
+          large='lg'
+        />
+      </TextInput.Root>
 
       <br />
       <br />
 
       <h1 className=' text-white text-2xl'>Error</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
-        error
-        showStatus
+      <TextInput.Root
         large="md"
+        error
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="md" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          large='md'
+          placeholder="Digite seu email" 
+        />
+        <TextInput.Actions>
+          <TextInput.Status error large='md'/>
+        </TextInput.Actions>
+      </TextInput.Root>
 
       <br />
       <br />
 
       <h1 className=' text-white text-2xl'>Success</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
-        showStatus
+      <TextInput.Root
         large="md"
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="md" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          large='md'
+          placeholder="Digite seu email" 
+        />
+        <TextInput.Actions>
+          <TextInput.Status large='md'/>
+        </TextInput.Actions>
+      </TextInput.Root>
 
       <br />
       <br />
 
       <h1 className=' text-white text-2xl'>Password Action</h1>
-      <CustomTextInput
-        icon={< EmailIcon />}
-        showPasswordAction
+      <TextInput.Root
         large="md"
         variant="default"
-        placeholder="Digite seu email"
-      />
+      >
+        <TextInput.Icon 
+          icon={< EmailIcon />} 
+          large="md" 
+          className={`fill-gray-3`} 
+        />
+        <TextInput.Input 
+          type={isPasswordVisible ? 'text' : 'password'}
+          large='md'
+          placeholder="Digite seu email" 
+        />
+        <TextInput.Actions>
+          <TextInput.PasswordActions 
+            isPasswordHidden={isPasswordVisible}
+            onClick={togglePasswordVisibility}
+            large='md'
+          />
+          <TextInput.Status large='md'/>
+        </TextInput.Actions>
+      </TextInput.Root>
     </div>
 
 

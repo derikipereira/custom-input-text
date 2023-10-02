@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface IconProps {
+interface TextInputIconProps {
     icon: React.ReactNode;
     large: 'sm' | 'md' | 'lg';
     className?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ icon, large, className }) => {
+const TextInputIcon: React.FC<TextInputIconProps> = ({ icon, large, className }) => {
     let iconSizeClass = 'md';
     const inputClassName = `custom-text-input-icon ${className || ''}`;
 
@@ -25,4 +25,4 @@ const Icon: React.FC<IconProps> = ({ icon, large, className }) => {
     );
 };
 
-export default Icon;
+export default TextInputIcon;
